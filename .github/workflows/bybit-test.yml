@@ -1,0 +1,15 @@
+name: Test Bybit Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Bybit API
+        run: |
+          echo "Testing Bybit..."
+          curl -i --max-time 20 \
+            "https://api.bybit.com/v5/market/kline?category=linear&symbol=BTCUSDT&interval=5&limit=1"
